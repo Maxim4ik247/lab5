@@ -1,0 +1,2 @@
+execute_script /Users/maksneokesarijskij/Documents/Lab5_final/src/test2.txt
+info

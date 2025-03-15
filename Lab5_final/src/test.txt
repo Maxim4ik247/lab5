@@ -1,0 +1,34 @@
+show
+execute_script /Users/maksneokesarijskij/Documents/Lab5_final/src/test.txt
+add
+Maxim-Apollon
+1
+1
+1
+HEAD_OF_DIVISION
+REGULAR
+1
+BROWN
+BROWN
+NORTH_KOREA
+1
+1
+1
+spb
+show
+update 1
+Maxim-Apollon-Updated
+2
+2
+2
+HEAD_OF_DIVISION
+REGULAR
+2
+BROWN
+BROWN
+NORTH_KOREA
+1
+1
+1
+spb
+show
