@@ -4,7 +4,7 @@ import system.CollectionManager;
 
 public class ShuffleCommand implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public ShuffleCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

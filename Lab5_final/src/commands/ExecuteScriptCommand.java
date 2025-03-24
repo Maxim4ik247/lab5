@@ -1,20 +1,21 @@
 package commands;
 
 import system.CollectionManager;
-import system.WorkerCreator;
+import system.ScriptExecutor;
+import system.ScriptExecutor;
 
 public class ExecuteScriptCommand implements BaseCommand{
-    private CollectionManager collectionManager;
-    private WorkerCreator workerCreator;
+    private final CollectionManager collectionManager;
+    private final ScriptExecutor scriptExecutor;
 
-    public ExecuteScriptCommand(CollectionManager collectionManager, WorkerCreator workerCreator) {
-        this.workerCreator = workerCreator;
+    public ExecuteScriptCommand(CollectionManager collectionManager, ScriptExecutor scriptExecutor) {
+        this.scriptExecutor = scriptExecutor;
         this.collectionManager = collectionManager;
     }
 
     @Override
     public String executeCommand(String i) {
-        return workerCreator.readFile(i.split(" ")[1], collectionManager);
+        return scriptExecutor.readFile(i.split(" ")[1], collectionManager);
     }
 
     @Override

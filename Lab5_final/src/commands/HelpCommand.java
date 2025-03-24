@@ -3,7 +3,7 @@ package commands;
 import system.CommandManager;
 
 public class HelpCommand implements BaseCommand{
-    private CommandManager commandManager;
+    private final CommandManager commandManager;
 
     public HelpCommand(CommandManager commandManager) {
         this.commandManager = commandManager;

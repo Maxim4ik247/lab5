@@ -12,16 +12,19 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Locale;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ReadXml {
-    public static void read(CollectionManager collectionManager, String path) {
+    public static List<Worker> read( String path) {
         try {
-            // Чтение XML файла
+
+            ArrayList<Worker> list = new ArrayList<>();
+
             File xmlFile = new File(path);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -63,14 +66,16 @@ public class ReadXml {
                 worker.setStatus(Status.valueOf(objectElement.getElementsByTagName("status").item(0).getTextContent()));
 
 
-
-                collectionManager.getworkerLinkedList().add(worker);
+                list.add(worker);
 
             }
+
+            return list;
 
         } catch (ParserConfigurationException | SAXException | IllegalArgumentException | IOException e) {
             System.out.println(e.getMessage());
             System.exit(1);
         }
+        return null;
     }
 }

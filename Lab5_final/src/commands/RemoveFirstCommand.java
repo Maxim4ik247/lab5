@@ -6,7 +6,7 @@ import system.WorkerCreator;
 
 public class RemoveFirstCommand implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public RemoveFirstCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

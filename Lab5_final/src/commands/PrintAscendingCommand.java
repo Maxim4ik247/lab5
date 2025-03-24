@@ -5,7 +5,7 @@ import system.CollectionManager;
 
 public class PrintAscendingCommand implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public PrintAscendingCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

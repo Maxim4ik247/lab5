@@ -1,9 +1,8 @@
 import system.Console;
-
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) {
 
         system.Console console = new Console();
 
@@ -24,11 +23,9 @@ public class Main {
             }
 
             System.out.println("Файл '" + fileName + "' успешно загружен.");
-            processFile(file);
+            System.out.println("Обработка файла...");
 
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
-        } catch (FileNotFoundException e) {
+        } catch (IllegalArgumentException | FileNotFoundException e) {
             System.err.println(e.getMessage());
         } catch (IOException e) {
             System.err.println("Ошибка ввода-вывода: " + e.getMessage());
@@ -38,7 +35,4 @@ public class Main {
         console.start(args[0]);
     }
 
-    private static void processFile(File file) {
-        System.out.println("Обработка файла...");
-    }
 }

@@ -4,7 +4,7 @@ import system.CollectionManager;
 
 public class ReorderCommand implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public ReorderCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

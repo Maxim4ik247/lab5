@@ -4,8 +4,8 @@ import system.CollectionManager;
 import system.WorkerCreator;
 
 public class AddCommand implements BaseCommand{
-    private CollectionManager collectionManager;
-    private WorkerCreator workerCreator;
+    private final CollectionManager collectionManager;
+    private final WorkerCreator workerCreator;
 
     public AddCommand(CollectionManager collectionManager, WorkerCreator workerCreator) {
         this.collectionManager = collectionManager;

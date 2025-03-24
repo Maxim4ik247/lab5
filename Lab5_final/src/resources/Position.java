@@ -5,5 +5,5 @@ public enum Position {
     HEAD_OF_DIVISION,
     DEVELOPER,
     LEAD_DEVELOPER,
-    MANAGER_OF_CLEANING;
+    MANAGER_OF_CLEANING
 }

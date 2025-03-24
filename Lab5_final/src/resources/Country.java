@@ -5,5 +5,5 @@ public enum Country {
     UNITED_KINGDOM,
     GERMANY,
     THAILAND,
-    NORTH_KOREA;
+    NORTH_KOREA
 }

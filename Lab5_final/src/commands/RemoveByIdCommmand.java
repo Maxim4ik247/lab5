@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class RemoveByIdCommmand implements BaseCommand{
 
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public RemoveByIdCommmand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

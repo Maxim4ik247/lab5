@@ -3,7 +3,7 @@ package commands;
 import system.CollectionManager;
 
 public class AverageOfSalaryCommand implements BaseCommand{
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public AverageOfSalaryCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

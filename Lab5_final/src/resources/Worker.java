@@ -117,7 +117,16 @@ public class Worker implements Comparable<Worker>{
 
     @Override
     public int compareTo(Worker o) {
-        // todo nullpointerexception
-        return (int) (this.salary - o.getSalary());
+        try {
+            return (int) (this.salary - o.getSalary());
+        }
+        catch (NullPointerException e){
+
+            if(this.salary==null){
+                return -1;
+            }
+            else return 1;
+
+        }
     }
 }

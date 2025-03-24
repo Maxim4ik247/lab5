@@ -5,7 +5,7 @@ import resources.Worker;
 import java.util.*;
 
 public class CollectionManager {
-    private LinkedList<Worker> workerLinkedList = new LinkedList<>();
+    private final LinkedList<Worker> workerLinkedList = new LinkedList<>();
 
 
     public void add(Worker worker){

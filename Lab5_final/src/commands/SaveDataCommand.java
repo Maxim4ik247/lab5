@@ -6,7 +6,7 @@ import util.WriteToFile;
 
 public class SaveDataCommand implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public SaveDataCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

@@ -1,26 +1,18 @@
 package system;
-import resources.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.Stack;
 
+import resources.*;
+
+import java.util.Scanner;
 
 
 public class WorkerCreator {
 
-    private CommandManager commandManager;
 
-    public WorkerCreator(CommandManager commandManager) {
-        this.commandManager = commandManager;
-    }
-
-    public Worker updateWorker(int id, CollectionManager collectionManager){
+    public Worker updateWorker(int id, CollectionManager collectionManager) {
         Scanner scanner = new Scanner(System.in);
 
         Worker p = new Worker();
-        for (Worker w: collectionManager.getworkerLinkedList()) {
+        for (Worker w : collectionManager.getworkerLinkedList()) {
             if (w.getId() == id) {
                 p = w;
             }
@@ -271,8 +263,8 @@ public class WorkerCreator {
         Float xL = 0f;
         Float yL = 0f;
         Long zL = 0L;
-        flag=true;
-        while(flag) {
+        flag = true;
+        while (flag) {
             try {
                 System.out.println("location name");
                 locationName = scanner.nextLine();
@@ -282,9 +274,8 @@ public class WorkerCreator {
                 yL = Float.parseFloat(scanner.nextLine());
                 System.out.println("z");
                 zL = Long.parseLong(scanner.nextLine());
-                flag=false;
-            }
-            catch (Exception e){
+                flag = false;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -319,133 +310,15 @@ public class WorkerCreator {
         return p;
     }
 
-    public String readFile(String filePath, CollectionManager collectionManager) {
-        if(historyOfFiles.contains(filePath)){
-            return "Была пропущена рекурсия";
-        }
-
-        historyOfFiles.add(filePath);
-        try (FileReader fileReader = new FileReader(filePath);
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-
-                String command = line;
-                if (command.contains("add") || command.contains("update")){
-
-
-                    String name = bufferedReader.readLine();
-                    Float x = Float.parseFloat(bufferedReader.readLine());
-                    Float y = Float.parseFloat(bufferedReader.readLine());
-
-                    Float salary = Float.parseFloat(bufferedReader.readLine());
-                    Position position = Position.valueOf(bufferedReader.readLine());
-                    Status status = Status.valueOf(bufferedReader.readLine());
-
-                    Integer height = Integer.parseInt(bufferedReader.readLine());
-                    Color eyeColor = Color.valueOf(bufferedReader.readLine());
-                    Color hairColor = Color.valueOf(bufferedReader.readLine());
-                    Country nationality = Country.valueOf(bufferedReader.readLine());
-
-                    Float xL = Float.parseFloat(bufferedReader.readLine());
-                    Float yL = Float.parseFloat(bufferedReader.readLine());
-                    Long zL = Long.parseLong(bufferedReader.readLine());
-                    String locationName = bufferedReader.readLine();
-
-
-                    Coordinates coordinates = new Coordinates();
-                    Person person = new Person();
-                    Location location = new Location();
-
-
-                    coordinates.setX(x);
-                    coordinates.setY(y);
-
-                    location.setX(xL);
-                    location.setY(yL);
-                    location.setZ(zL);
-                    location.setName(locationName);
-
-                    person.setHeight(height);
-                    person.setEyeColor(eyeColor);
-                    person.setHairColor(hairColor);
-                    person.setNationality(nationality);
-                    person.setLocation(location);
-
-
-
-                     if(command.equals("add")){
-                         Worker worker = new Worker();
-
-                         worker.setName(name);
-                         worker.setCoordinates(coordinates);
-                         worker.setSalary(salary);
-                         worker.setPosition(position);
-                         worker.setStatus(status);
-                         worker.setPerson(person);
-
-                         collectionManager.add(worker);
-                         System.out.println("Worker был добавлен в коллекцию");
-                     }
-                     else if (command.contains("update")) {
-                         Integer id = Integer.parseInt(command.split(" ")[1]);
-                         Worker p = new Worker();
-                         for (Worker w: collectionManager.getworkerLinkedList()) {
-                             if (w.getId() == id) {
-                                 p = w;
-                             }
-                         }
-                         p.setName(name);
-                         p.setCoordinates(coordinates);
-                         p.setSalary(salary);
-                         p.setPosition(position);
-                         p.setStatus(status);
-                         p.setPerson(person);
-
-                         System.out.println("Worker был обновлен");
-
-                     }
-
-                }
-                else {
-                    System.out.println(commandManager.doCommand(line));
-                }
-
-            }
-            historyOfFiles.pop();
-
-        } catch (IllegalArgumentException | IOException e) {
-            System.err.println("Ошибка при чтении файла: " + e.getMessage());
-        }
-        return"";
-    }
-
-
-    private Stack<String> historyOfFiles = new Stack<>();
-
 
     private boolean flag = true;
 
     public Worker createWorker() {
         Scanner scanner = new Scanner(System.in);
 
+        Worker worker = new Worker();
 
-        String name = "";
-        flag = true;
-        while (flag) {
-            try {
-                System.out.print("Введите имя работника:");
-                name = scanner.nextLine().trim();
-                if (name.isEmpty()) {
-                    System.out.println("Ошибка: имя не может быть пустым.");
-                    continue;
-                }
-                flag = false;
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        setName(worker);
 
         Float x = 0f;
         flag = true;
@@ -458,7 +331,7 @@ public class WorkerCreator {
                     continue;
                 }
                 x = Float.parseFloat(a);
-                if (x>769) {
+                if (x > 769) {
                     System.out.println("Ошибка: x не может быть больше 769.");
                     continue;
                 }
@@ -482,7 +355,7 @@ public class WorkerCreator {
                 }
 
                 y = Float.parseFloat(b);
-                if (y>682) {
+                if (y > 682) {
                     System.out.println("Ошибка: y не может быть больше 682.");
                     continue;
                 }
@@ -573,24 +446,24 @@ public class WorkerCreator {
 
                 int statusIndex = Integer.parseInt(a);
 
-                    switch (statusIndex) {
-                        case 0:
-                            status = Status.FIRED;
-                            flag = false;
-                            break;
-                        case 1:
-                            status = Status.REGULAR;
-                            flag = false;
-                            break;
-                        case 2:
-                            status = Status.PROBATION;
-                            flag = false;
-                            break;
-                        default:
-                            System.out.println("Ошибка: некорректный статус.");
+                switch (statusIndex) {
+                    case 0:
+                        status = Status.FIRED;
+                        flag = false;
+                        break;
+                    case 1:
+                        status = Status.REGULAR;
+                        flag = false;
+                        break;
+                    case 2:
+                        status = Status.PROBATION;
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Ошибка: некорректный статус.");
 
-                    }
-                } catch (Exception e) {
+                }
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
@@ -667,51 +540,51 @@ public class WorkerCreator {
         }
 
         Color hairColor = null;
-                flag = true;
-                while (flag) {
-                    try {
-                        System.out.print("Введите цвет волос (0 - BLACK, 1 - BROWN, 2 - RED, 3 - GREEN, 4 - ORANGE, 5 - WHITE): ");
+        flag = true;
+        while (flag) {
+            try {
+                System.out.print("Введите цвет волос (0 - BLACK, 1 - BROWN, 2 - RED, 3 - GREEN, 4 - ORANGE, 5 - WHITE): ");
 
-                        String a = scanner.nextLine().trim();
-                        if (a.isEmpty()) {
-                            System.out.println("Поле останетя null");
-                            flag = false;
-                            break;
-                        }
-
-                        int statusIndex = Integer.parseInt(a);
-                        switch (statusIndex) {
-                            case 0:
-                                hairColor = Color.BLACK;
-                                flag = false;
-                                break;
-                            case 1:
-                                hairColor = Color.BROWN;
-                                flag = false;
-                                break;
-                            case 2:
-                                hairColor = Color.RED;
-                                flag = false;
-                                break;
-                            case 3:
-                                hairColor = Color.GREEN;
-                                flag = false;
-                                break;
-                            case 4:
-                                hairColor = Color.ORANGE;
-                                flag = false;
-                                break;
-                            case 5:
-                                hairColor = Color.WHITE;
-                                flag = false;
-                                break;
-                            default:
-                                System.out.println("Ошибка: некорректный цвет.");
-                        }
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
+                String a = scanner.nextLine().trim();
+                if (a.isEmpty()) {
+                    System.out.println("Поле останетя null");
+                    flag = false;
+                    break;
                 }
+
+                int statusIndex = Integer.parseInt(a);
+                switch (statusIndex) {
+                    case 0:
+                        hairColor = Color.BLACK;
+                        flag = false;
+                        break;
+                    case 1:
+                        hairColor = Color.BROWN;
+                        flag = false;
+                        break;
+                    case 2:
+                        hairColor = Color.RED;
+                        flag = false;
+                        break;
+                    case 3:
+                        hairColor = Color.GREEN;
+                        flag = false;
+                        break;
+                    case 4:
+                        hairColor = Color.ORANGE;
+                        flag = false;
+                        break;
+                    case 5:
+                        hairColor = Color.WHITE;
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Ошибка: некорректный цвет.");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         Country nationality = null;
         flag = true;
@@ -757,8 +630,8 @@ public class WorkerCreator {
         }
 
         String locationName = "";
-        flag=true;
-        while(flag) {
+        flag = true;
+        while (flag) {
             try {
                 System.out.println("location name");
                 String a = scanner.nextLine().trim();
@@ -767,16 +640,15 @@ public class WorkerCreator {
                     continue;
                 }
                 locationName = a;
-                flag=false;
-            }
-            catch (Exception e){
+                flag = false;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
 
         Float xL = 0f;
-        flag=true;
-        while(flag) {
+        flag = true;
+        while (flag) {
             try {
                 System.out.println("x");
 
@@ -786,16 +658,15 @@ public class WorkerCreator {
                     continue;
                 }
                 xL = Float.parseFloat(b);
-                flag=false;
-            }
-            catch (Exception e){
+                flag = false;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
 
         Float yL = 0f;
-        flag=true;
-        while(flag) {
+        flag = true;
+        while (flag) {
             try {
                 System.out.println("y");
                 String a = scanner.nextLine();
@@ -804,16 +675,15 @@ public class WorkerCreator {
                     continue;
                 }
                 yL = Float.parseFloat(a);
-                flag=false;
-            }
-            catch (Exception e){
+                flag = false;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
 
         Long zL = null;
-        flag=true;
-        while(flag) {
+        flag = true;
+        while (flag) {
             try {
                 System.out.println("z");
                 String a = scanner.nextLine();
@@ -822,16 +692,11 @@ public class WorkerCreator {
                     continue;
                 }
                 zL = Long.parseLong(a);
-                flag=false;
-            }
-            catch (Exception e){
+                flag = false;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
-
-
-
-
 
 
         Coordinates coordinates = new Coordinates();
@@ -852,20 +717,34 @@ public class WorkerCreator {
         person.setNationality(nationality);
         person.setLocation(location);
 
-        Worker worker = new Worker();
-        worker.setName(name);
         worker.setCoordinates(coordinates);
         worker.setSalary(salary);
         worker.setPosition(position);
         worker.setStatus(status);
         worker.setPerson(person);
 
-                    System.out.println("Работник успешно создан!");
-                    return worker;
+        System.out.println("Работник успешно создан!");
+        return worker;
+    }
+
+    public void setName(Worker worker){
+
+        Scanner scanner = new Scanner(System.in);
+        String name = "";
+        flag = true;
+        while (flag) {
+            try {
+                System.out.print("Введите имя работника:");
+                name = scanner.nextLine().trim();
+                if (name.isEmpty()) {
+                    System.out.println("Ошибка: имя не может быть пустым.");
+                    continue;
                 }
-
-
-    public void setCommandManager(CommandManager commandManager) {
-        this.commandManager = commandManager;
+                flag = false;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        worker.setName(name);
     }
 }

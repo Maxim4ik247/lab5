@@ -4,7 +4,7 @@ import system.CollectionManager;
 
 public class PrintFieldDescendingSalary implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public PrintFieldDescendingSalary(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

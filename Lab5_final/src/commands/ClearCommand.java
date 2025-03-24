@@ -3,7 +3,7 @@ package commands;
 import system.CollectionManager;
 
 public class ClearCommand implements BaseCommand{
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public ClearCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;

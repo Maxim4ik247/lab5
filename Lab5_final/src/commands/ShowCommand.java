@@ -5,7 +5,7 @@ import system.CollectionManager;
 
 public class ShowCommand implements BaseCommand{
 
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public ShowCommand(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;
