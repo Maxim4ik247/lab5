@@ -2,25 +2,26 @@ package system;
 
 import resources.Worker;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedList;
 
 public class CollectionManager {
     private final LinkedList<Worker> workerLinkedList = new LinkedList<>();
 
 
-    public void add(Worker worker){
+    public void add(Worker worker) {
         workerLinkedList.add(worker);
     }
 
-    public void shuffle(){
+    public void shuffle() {
         Collections.shuffle(workerLinkedList);
     }
 
-    public void reorder(){
+    public void reorder() {
         Collections.reverse(workerLinkedList);
     }
 
-    public void clearCollection(){
+    public void clearCollection() {
         workerLinkedList.clear();
     }
 
@@ -33,20 +34,19 @@ public class CollectionManager {
         }
     }
 
-    public void removeFirst(){
+    public void removeFirst() {
         workerLinkedList.removeFirst();
     }
 
-    public int averageSalary(){
+    public int averageSalary() {
         int aveSal = 0;
-        int counter =0;
-        for (Worker w: workerLinkedList){
+        int counter = 0;
+        for (Worker w : workerLinkedList) {
             aveSal += w.getSalary();
-            counter+=1;
+            counter += 1;
         }
-        return aveSal/counter;
+        return aveSal / counter;
     }
-
 
 
     public LinkedList<Worker> getworkerLinkedList() {

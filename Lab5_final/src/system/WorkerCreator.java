@@ -317,9 +317,56 @@ public class WorkerCreator {
         Scanner scanner = new Scanner(System.in);
 
         Worker worker = new Worker();
+        Coordinates coordinates = new Coordinates();
+        Location location = new Location();
+        Person person = new Person();
+
 
         setName(worker);
+        setX(coordinates);
+        setY(coordinates);
+        setSalary(worker);
+        setPosition(worker);
+        setStatus(worker);
+        setHeight(person);
+        setEyeColor(person);
+        setHairColor(person);
+        setNationality(person);
+        setLocationName(location);
+        setXL(location);
+        setYL(location);
+        setZL(location);
+        person.setLocation(location);
+        worker.setCoordinates(coordinates);
+        worker.setPerson(person);
 
+        System.out.println("Работник успешно создан!");
+        return worker;
+    }
+
+    public void setName(Worker worker) {
+
+        Scanner scanner = new Scanner(System.in);
+        String name = "";
+        flag = true;
+        while (flag) {
+            try {
+                System.out.print("Введите имя работника:");
+                name = scanner.nextLine().trim();
+                if (name.isEmpty()) {
+                    System.out.println("Ошибка: имя не может быть пустым.");
+                    continue;
+                }
+                flag = false;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        worker.setName(name);
+    }
+
+    public void setX(Coordinates coordinates) {
+        Scanner scanner = new Scanner(System.in);
         Float x = 0f;
         flag = true;
         while (flag) {
@@ -339,9 +386,12 @@ public class WorkerCreator {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+            coordinates.setX(x);
         }
+    }
 
-
+    public void setY(Coordinates coordinates) {
+        Scanner scanner = new Scanner(System.in);
         Float y = 0f;
         flag = true;
         while (flag) {
@@ -363,7 +413,12 @@ public class WorkerCreator {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+            coordinates.setY(y);
         }
+    }
+
+    public void setSalary(Worker worker) {
+        Scanner scanner = new Scanner(System.in);
 
         Float salary = 0f;
         flag = true;
@@ -386,7 +441,11 @@ public class WorkerCreator {
             }
         }
 
+        worker.setSalary(salary);
+    }
 
+    public void setPosition(Worker worker) {
+        Scanner scanner = new Scanner(System.in);
         Position position = null;
         flag = true;
         while (flag) {
@@ -429,8 +488,11 @@ public class WorkerCreator {
                 throw new RuntimeException(e);
             }
         }
+        worker.setPosition(position);
+    }
 
-
+    public void setStatus(Worker worker) {
+        Scanner scanner = new Scanner(System.in);
         Status status = null;
         flag = true;
         while (flag) {
@@ -468,6 +530,11 @@ public class WorkerCreator {
             }
         }
 
+        worker.setStatus(status);
+    }
+
+    public void setHeight(Person person) {
+        Scanner scanner = new Scanner(System.in);
         Integer height = null;
         flag = true;
         while (flag) {
@@ -492,6 +559,11 @@ public class WorkerCreator {
             }
         }
 
+        person.setHeight(height);
+    }
+
+    public void setEyeColor(Person person) {
+        Scanner scanner = new Scanner(System.in);
         Color eyeColor = null;
         flag = true;
         while (flag) {
@@ -538,7 +610,11 @@ public class WorkerCreator {
                 throw new RuntimeException(e);
             }
         }
+        person.setEyeColor(eyeColor);
+    }
 
+    public void setHairColor(Person person) {
+        Scanner scanner = new Scanner(System.in);
         Color hairColor = null;
         flag = true;
         while (flag) {
@@ -585,6 +661,11 @@ public class WorkerCreator {
                 throw new RuntimeException(e);
             }
         }
+        person.setHairColor(hairColor);
+    }
+
+    public void setNationality(Person person) {
+        Scanner scanner = new Scanner(System.in);
 
         Country nationality = null;
         flag = true;
@@ -629,6 +710,12 @@ public class WorkerCreator {
             }
         }
 
+        person.setNationality(nationality);
+    }
+
+    public void setLocationName(Location location) {
+        Scanner scanner = new Scanner(System.in);
+
         String locationName = "";
         flag = true;
         while (flag) {
@@ -645,6 +732,12 @@ public class WorkerCreator {
                 System.out.println(e.getMessage());
             }
         }
+
+        location.setName(locationName);
+    }
+
+    public void setXL(Location location) {
+        Scanner scanner = new Scanner(System.in);
 
         Float xL = 0f;
         flag = true;
@@ -664,6 +757,12 @@ public class WorkerCreator {
             }
         }
 
+        location.setX(xL);
+    }
+
+    public void setYL(Location location) {
+        Scanner scanner = new Scanner(System.in);
+
         Float yL = 0f;
         flag = true;
         while (flag) {
@@ -680,6 +779,12 @@ public class WorkerCreator {
                 System.out.println(e.getMessage());
             }
         }
+
+        location.setY(yL);
+    }
+
+    public void setZL(Location location) {
+        Scanner scanner = new Scanner(System.in);
 
         Long zL = null;
         flag = true;
@@ -698,53 +803,7 @@ public class WorkerCreator {
             }
         }
 
-
-        Coordinates coordinates = new Coordinates();
-        coordinates.setX(x);
-        coordinates.setY(y);
-
-
-        Location location = new Location();
-        location.setName(locationName);
-        location.setX(xL);
-        location.setY(yL);
         location.setZ(zL);
-
-        Person person = new Person();
-        person.setHeight(height);
-        person.setEyeColor(eyeColor);
-        person.setHairColor(hairColor);
-        person.setNationality(nationality);
-        person.setLocation(location);
-
-        worker.setCoordinates(coordinates);
-        worker.setSalary(salary);
-        worker.setPosition(position);
-        worker.setStatus(status);
-        worker.setPerson(person);
-
-        System.out.println("Работник успешно создан!");
-        return worker;
     }
 
-    public void setName(Worker worker){
-
-        Scanner scanner = new Scanner(System.in);
-        String name = "";
-        flag = true;
-        while (flag) {
-            try {
-                System.out.print("Введите имя работника:");
-                name = scanner.nextLine().trim();
-                if (name.isEmpty()) {
-                    System.out.println("Ошибка: имя не может быть пустым.");
-                    continue;
-                }
-                flag = false;
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-        worker.setName(name);
-    }
 }
