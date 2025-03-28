@@ -2,7 +2,8 @@ package resources;
 
 import java.time.LocalDateTime;
 
-public class Worker implements Comparable<Worker>{
+public class Worker implements Comparable<Worker> {
+    private static int counter = 1;
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -11,8 +12,6 @@ public class Worker implements Comparable<Worker>{
     private Position position; //Поле может быть null
     private Status status; //Поле может быть null
     private Person person; //Поле может быть null
-
-    private static int counter = 1;
 
     public Worker() {
         this.creationDate = LocalDateTime.now();
@@ -86,46 +85,25 @@ public class Worker implements Comparable<Worker>{
     }
 
 
-
-    public String toXML(){
-        return "<Worker>" +
-                "\n\t\t<id>" + id + "</id>" +
-                "\n\t\t<name>" + name + "</name>" +
-                "\n\t\t" + coordinates.toXml() +
-                "\n\t\t<creationDate>" + creationDate + "</creationDate>" +
-                "\n\t\t<salary>" + salary + "</salary>" +
-                "\n\t\t<position>" + position + "</position>" +
-                "\n\t\t<status>" + status + "</status>" +
-                "\n\t\t" + person.toXml() +
-                "\n\t" + "</Worker>";
+    public String toXML() {
+        return "<Worker>" + "\n\t\t<id>" + id + "</id>" + "\n\t\t<name>" + name + "</name>" + "\n\t\t" + coordinates.toXml() + "\n\t\t<creationDate>" + creationDate + "</creationDate>" + "\n\t\t<salary>" + salary + "</salary>" + "\n\t\t<position>" + position + "</position>" + "\n\t\t<status>" + status + "</status>" + "\n\t\t" + person.toXml() + "\n\t" + "</Worker>";
     }
 
 
     @Override
     public String toString() {
-        return "Worker{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", creationDate=" + creationDate +
-                ", coordinates=" + coordinates +
-                ", salary=" + salary +
-                ", position=" + position +
-                ", status=" + status +
-                ", person=" + person +
-                '}';
+        return "Worker{" + "id=" + id + ", name='" + name + '\'' + ", creationDate=" + creationDate + ", coordinates=" + coordinates + ", salary=" + salary + ", position=" + position + ", status=" + status + ", person=" + person + '}';
     }
 
     @Override
     public int compareTo(Worker o) {
         try {
             return (int) (this.salary - o.getSalary());
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
 
-            if(this.salary==null){
+            if (o == null) {
                 return -1;
-            }
-            else return 1;
+            } else return 1;
 
         }
     }

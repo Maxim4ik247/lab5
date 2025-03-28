@@ -3,7 +3,7 @@ package commands;
 import comparators.WorkerComparatorByName;
 import system.CollectionManager;
 
-public class PrintAscendingCommand implements BaseCommand{
+public class PrintAscendingCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 
@@ -12,9 +12,9 @@ public class PrintAscendingCommand implements BaseCommand{
     }
 
     @Override
-    public String executeCommand(String i){
+    public String executeCommand(String i) {
         WorkerComparatorByName comparator = new WorkerComparatorByName();
-        collectionManager.getworkerLinkedList().stream().sorted(comparator).forEach(worker->{
+        collectionManager.getworkerLinkedList().stream().sorted(comparator).forEach(worker -> {
             System.out.println(worker);
         });
         return "";

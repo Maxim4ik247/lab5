@@ -1,17 +1,13 @@
 package resources;
+
 public class Location {
     private Float x; //Поле не может быть null
     private float y;
     private long z;
     private String name; //Строка не может быть пустой, Поле не может быть null
 
-    public String toXml(){
-        return"<Location>" +
-        "\n\t\t<x>" + x + "</x>" +
-        "\n\t\t<y>" + y + "</y>" +
-        "\n\t\t<z>" + z + "</z>" +
-        "\n\t\t<name>" + name + "</name>" +
-        "\n\t" + "</Location>";
+    public String toXml() {
+        return "<Location>" + "\n\t\t<x>" + x + "</x>" + "\n\t\t<y>" + y + "</y>" + "\n\t\t<z>" + z + "</z>" + "\n\t\t<name>" + name + "</name>" + "\n\t" + "</Location>";
     }
 
     public Float getX() {
@@ -48,12 +44,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "x=" + x +
-                ", y=" + y +
-                ", z=" + z +
-                ", name='" + name + '\'' +
-                '}';
+        return "Location{" + "x=" + x + ", y=" + y + ", z=" + z + ", name='" + name + '\'' + '}';
     }
 }
 

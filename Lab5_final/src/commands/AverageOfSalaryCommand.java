@@ -2,7 +2,7 @@ package commands;
 
 import system.CollectionManager;
 
-public class AverageOfSalaryCommand implements BaseCommand{
+public class AverageOfSalaryCommand implements BaseCommand {
     private final CollectionManager collectionManager;
 
     public AverageOfSalaryCommand(CollectionManager collectionManager) {

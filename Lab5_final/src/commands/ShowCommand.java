@@ -3,7 +3,7 @@ package commands;
 import resources.Worker;
 import system.CollectionManager;
 
-public class ShowCommand implements BaseCommand{
+public class ShowCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 

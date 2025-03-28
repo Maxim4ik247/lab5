@@ -4,7 +4,7 @@ import resources.Worker;
 import system.CollectionManager;
 import util.WriteToFile;
 
-public class SaveDataCommand implements BaseCommand{
+public class SaveDataCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 
@@ -13,9 +13,9 @@ public class SaveDataCommand implements BaseCommand{
     }
 
     @Override
-    public String executeCommand(String i)  {
+    public String executeCommand(String i) {
         String data = "<workers>";
-        for (Worker w: collectionManager.getworkerLinkedList()){
+        for (Worker w : collectionManager.getworkerLinkedList()) {
             data += "\n\t" + w.toXML();
         }
         data += "\n</workers>";

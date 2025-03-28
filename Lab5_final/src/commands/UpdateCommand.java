@@ -3,7 +3,7 @@ package commands;
 import system.CollectionManager;
 import system.WorkerCreator;
 
-public class UpdateCommand implements BaseCommand{
+public class UpdateCommand implements BaseCommand {
 
     private String input;
     private CollectionManager collectionManager;

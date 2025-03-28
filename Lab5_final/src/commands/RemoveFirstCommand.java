@@ -1,10 +1,8 @@
 package commands;
 
 import system.CollectionManager;
-import system.CommandManager;
-import system.WorkerCreator;
 
-public class RemoveFirstCommand implements BaseCommand{
+public class RemoveFirstCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 
@@ -15,7 +13,7 @@ public class RemoveFirstCommand implements BaseCommand{
     @Override
     public String executeCommand(String i) {
         collectionManager.removeFirst();
-        return"Первый элемент коллекции был удален";
+        return "Первый элемент коллекции был удален";
     }
 
     @Override

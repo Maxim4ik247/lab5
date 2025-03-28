@@ -1,6 +1,6 @@
 package commands;
 
-public class ExitCommand implements BaseCommand{
+public class ExitCommand implements BaseCommand {
     @Override
     public String executeCommand(String i) {
         System.out.println("Программа завершает свою работу");

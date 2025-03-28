@@ -2,7 +2,7 @@ package commands;
 
 import system.CollectionManager;
 
-public class ShuffleCommand implements BaseCommand{
+public class ShuffleCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 

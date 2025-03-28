@@ -2,9 +2,8 @@ package commands;
 
 import system.CollectionManager;
 import system.ScriptExecutor;
-import system.ScriptExecutor;
 
-public class ExecuteScriptCommand implements BaseCommand{
+public class ExecuteScriptCommand implements BaseCommand {
     private final CollectionManager collectionManager;
     private final ScriptExecutor scriptExecutor;
 

@@ -20,18 +20,12 @@ public class Coordinates {
         this.y = y;
     }
 
-    public String toXml(){
-        return"<Coordinates>" +
-                "\n\t\t<x>" + x + "</x>" +
-                "\n\t\t<y>" + y + "</y>" +
-                "\n\t" + "</Coordinates>";
+    public String toXml() {
+        return "<Coordinates>" + "\n\t\t<x>" + x + "</x>" + "\n\t\t<y>" + y + "</y>" + "\n\t" + "</Coordinates>";
     }
 
     @Override
     public String toString() {
-        return "Coordinates{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return "Coordinates{" + "x=" + x + ", y=" + y + '}';
     }
 }

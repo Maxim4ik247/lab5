@@ -4,7 +4,7 @@ import system.CollectionManager;
 
 import java.time.LocalDateTime;
 
-public class InfoCommand implements BaseCommand{
+public class InfoCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 

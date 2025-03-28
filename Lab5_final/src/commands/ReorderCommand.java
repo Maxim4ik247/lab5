@@ -2,7 +2,7 @@ package commands;
 
 import system.CollectionManager;
 
-public class ReorderCommand implements BaseCommand{
+public class ReorderCommand implements BaseCommand {
 
     private final CollectionManager collectionManager;
 
@@ -11,7 +11,7 @@ public class ReorderCommand implements BaseCommand{
     }
 
     @Override
-    public String executeCommand(String i){
+    public String executeCommand(String i) {
         collectionManager.reorder();
         return "Элементы коллекции отсортированы в обратном порядке";
     }

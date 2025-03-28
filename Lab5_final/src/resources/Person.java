@@ -1,4 +1,5 @@
 package resources;
+
 public class Person {
     private Integer height; //Поле может быть null, Значение поля должно быть больше 0
     private Color eyeColor; //Поле может быть null
@@ -6,14 +7,8 @@ public class Person {
     private Country nationality; //Поле может быть null
     private Location location; //Поле не может быть null
 
-    public String toXml(){
-        return"<Person>" +
-        "\n\t\t<height>" + height + "</height>" +
-        "\n\t\t<eyeColor>" + eyeColor + "</eyeColor>" +
-        "\n\t\t<hairColor>" + hairColor + "</hairColor>" +
-        "\n\t\t<nationality>" + nationality + "</nationality>" +
-        "\n\t\t" + location.toXml()  +
-        "\n\t" + "</Person>";
+    public String toXml() {
+        return "<Person>" + "\n\t\t<height>" + height + "</height>" + "\n\t\t<eyeColor>" + eyeColor + "</eyeColor>" + "\n\t\t<hairColor>" + hairColor + "</hairColor>" + "\n\t\t<nationality>" + nationality + "</nationality>" + "\n\t\t" + location.toXml() + "\n\t" + "</Person>";
     }
 
     public Integer getHeight() {
@@ -58,13 +53,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "height=" + height +
-                ", eyeColor=" + eyeColor +
-                ", hairColor=" + hairColor +
-                ", nationality=" + nationality +
-                ", location=" + location +
-                '}';
+        return "Person{" + "height=" + height + ", eyeColor=" + eyeColor + ", hairColor=" + hairColor + ", nationality=" + nationality + ", location=" + location + '}';
     }
 }
 

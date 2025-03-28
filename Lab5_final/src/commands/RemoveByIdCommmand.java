@@ -2,10 +2,8 @@ package commands;
 
 import system.CollectionManager;
 
-import java.util.Scanner;
 
-
-public class RemoveByIdCommmand implements BaseCommand{
+public class RemoveByIdCommmand implements BaseCommand {
 
 
     private final CollectionManager collectionManager;
@@ -33,7 +31,7 @@ public class RemoveByIdCommmand implements BaseCommand{
             }
             return "Элемент с id: " + id + " был удален";
         } catch (NumberFormatException e) {
-           return "id должен быть числом.";
+            return "id должен быть числом.";
         }
     }
 

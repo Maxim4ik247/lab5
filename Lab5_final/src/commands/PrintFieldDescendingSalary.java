@@ -2,7 +2,7 @@ package commands;
 
 import system.CollectionManager;
 
-public class PrintFieldDescendingSalary implements BaseCommand{
+public class PrintFieldDescendingSalary implements BaseCommand {
 
     private final CollectionManager collectionManager;
 
@@ -12,7 +12,7 @@ public class PrintFieldDescendingSalary implements BaseCommand{
 
     @Override
     public String executeCommand(String i) {
-        collectionManager.getworkerLinkedList().stream().sorted().forEach(worker->{
+        collectionManager.getworkerLinkedList().stream().sorted().forEach(worker -> {
             System.out.println(worker.getSalary());
         });
         return "";

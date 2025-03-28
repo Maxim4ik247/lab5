@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class WriteToFile {
     public static void writeToFile(String data) {
-        try(FileWriter fileWriter = new FileWriter("/Users/maksneokesarijskij/Documents/Lab5_final/src/util/data.xml")) {
+        try (FileWriter fileWriter = new FileWriter("/Users/maksneokesarijskij/Documents/Lab5_final/src/util/data.xml")) {
             System.out.println(data);
             fileWriter.write(data);
             System.out.println("Текст записан в файл data.xml");
